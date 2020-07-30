@@ -39,15 +39,40 @@ export const SliderItem = styled.li`
 `;
 
 
+function SampleNextArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{ ...style, display: "block", background: "orange" }}
+      onClick={onClick}
+    />
+  );
+}
+
+function SamplePrevArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{ ...style, display: "block", background: "orange" }}
+      onClick={onClick}
+    />
+  );
+}
+
 const Slider = ({ children }) => (
   <Container>
     <SlickSlider {...{
       dots: false,
       infinite: false,
       speed: 300,
+      slidesToShow:4,
       centerMode: false,
       variableWidth: true,
       adaptiveHeight: true,
+      nextArrow: <SampleNextArrow />,
+      prevArrow: <SamplePrevArrow />
     }}
     >
       {children}
